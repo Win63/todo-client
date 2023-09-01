@@ -18,7 +18,6 @@ function App() {
             <Header />
             <Routes>
                 <Route index element={<TaskList />}/>
-                <Route path={'form'} element={<Form />}/>
             </Routes>
         </div>
     );
