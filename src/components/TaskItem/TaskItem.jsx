@@ -9,7 +9,7 @@ const TaskItem = ({task, deleteTodo, editTodo, toggleComplete}) => {
 
     return (
         <div className="Task">
-            <p className={`${task.isCompleted ? 'completed' : ""}`} onClick={() => toggleComplete(task.id)}>{task.data}</p>
+            <p className={`${task.isCompleted ? 'completed' : ""}`} onClick={() => toggleComplete(task.id)}>{task.name}</p>
             <div>
             <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(task.id)} />
             <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(task.id)} />

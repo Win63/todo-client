@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 export const EditTaskForm = ({editTodo, task}) => {
-  const [value, setValue] = useState(task.task);
+  const [value, setValue] = useState(task.name);
 
   const handleSubmit = (e) => {
     // prevent default action
