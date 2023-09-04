@@ -90,8 +90,7 @@ export const TaskList = () => {
 
     const loadData = async () => {
       try {
-          var userid = user?.id
-          const {data} = await Client.get(getUrl('?doDate=02.09.2023'));
+          const {data} = await Client.get(getUrl('?doDate=2023.09.02'));
           setTodos(data);
       } catch (error) {
           setError(error);
@@ -145,66 +144,4 @@ export const TaskList = () => {
   };
 
 export default TaskList;
-/*
-const TaskList = () => {
-    const [addedItems, setAddedItems] = useState([]);
-    const {tg, queryId} = useTelegram();
-
-    const onSendData = useCallback(() => {
-        const data = {
-            tasks: addedItems,
-            totalPrice: getTotalPrice(addedItems),
-            queryId,
-        }
-        fetch('http://85.119.146.179:8000/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-    }, [addedItems])
-
-    useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData])
-
-    const onAdd = (task) => {
-        const alreadyAdded = addedItems.find(item => item.id === task.id);
-        let newItems = [];
-
-        if(alreadyAdded) {
-            newItems = addedItems.filter(item => item.id !== task.id);
-        } else {
-            newItems = [...addedItems, task];
-        }
-
-        setAddedItems(newItems)
-
-        if(newItems.length === 0) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-            tg.MainButton.setParams({
-                text: `Купить ${getTotalPrice(newItems)}`
-            })
-        }
-    }
-
-    return (
-        <div className={'list'}>
-            {tasks.map(item => (
-                <TaskItem
-                    task={item}
-                    onAdd={onAdd}
-                    className={'item'}
-                />
-            ))}
-        </div>
-    );
-};
-*/
 
