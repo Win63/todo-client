@@ -6,9 +6,11 @@ import { EditTaskForm } from "../TaskItem/TaskItemFormEdit";
 import Client from '../../client';
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
-import { v4 as uuidv4 } from "uuid";
+import Calendar from 'react-calendar';
+import { format } from 'date-fns'
 
 export const TaskList = () => {
+    const [dateValue, setChangeDate] = useState(new Date());
     const [todos, setTodos] = useState([]);
     const [error, setError] = useState(null);
     const [isCheckUser, setCheck] = useState(false);
@@ -22,12 +24,17 @@ export const TaskList = () => {
           ignore = true
         }
       }, []);
-  
-     const addTodo = async (todo) => {
+      
+    const onChangeDate = async (date) => {
+      setChangeDate(date)
+      await loadData(date)
+    }
+
+    const addTodo = async (todo) => {
       try {
         await Client.post(getUrl(), {
             "name": todo,
-            "doDate": "2023-09-02",
+            "doDate": format(dateValue, 'yyyy-MM-dd'),
             "orderValue":0
         });
         await loadData()
@@ -88,9 +95,10 @@ export const TaskList = () => {
       return 'user/'+ userId + '/tasks'+ add;
     }
 
-    const loadData = async () => {
+    const loadData = async (getDate = null) => {
+      var rDate = getDate ?? dateValue
       try {
-          const {data} = await Client.get(getUrl('?doDate=2023.09.02'));
+          const {data} = await Client.get(getUrl('?doDate='+format(rDate, 'yyyy.MM.dd')));
           setTodos(data);
       } catch (error) {
           setError(error);
@@ -123,8 +131,7 @@ export const TaskList = () => {
 
     return (
       <div className="TaskWrapper">
-        <h1>Список задач!</h1>
-        <TaskForm addTodo={addTodo} />
+        <Calendar onChange={onChangeDate} value={dateValue} locale="ru" selectRange={false} />
         {/* display todos */}
         {todos.map((todo) =>
           todo.isEditing ? (
@@ -139,6 +146,7 @@ export const TaskList = () => {
             />
           )
         )}
+        <TaskForm addTodo={addTodo} />
       </div>
     );
   };

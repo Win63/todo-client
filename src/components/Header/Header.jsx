@@ -11,8 +11,6 @@ const Header = () => {
             <Button onClick={onClose}>Закрыть</Button>
             <span className={'username'}>
                 {user?.username}
-                {user?.id}
-                {user?.last_name}
             </span>
         </div>
     );
