@@ -131,22 +131,24 @@ export const TaskList = () => {
 
     return (
       <div className="TaskWrapper">
+        <h3>Планы и факты</h3>
         <Calendar onChange={onChangeDate} value={dateValue} locale="ru" selectRange={false} />
-        {/* display todos */}
-        {todos.map((todo) =>
-          todo.isEditing ? (
-            <EditTaskForm editTodo={editTask} task={todo} />
-          ) : (
-            <TaskItem
-              key={todo.id}
-              task={todo}
-              deleteTodo={deleteTodo}
-              editTodo={editTodo}
-              toggleComplete={toggleComplete}
-            />
-          )
-        )}
-        <TaskForm addTodo={addTodo} />
+        <div className="TaskList">
+          {todos.map((todo) =>
+            todo.isEditing ? (
+              <EditTaskForm editTodo={editTask} task={todo} />
+            ) : (
+              <TaskItem
+                key={todo.id}
+                task={todo}
+                deleteTodo={deleteTodo}
+                editTodo={editTodo}
+                toggleComplete={toggleComplete}
+              />
+            )
+          )}
+          <TaskForm addTodo={addTodo} />
+        </div>
       </div>
     );
   };

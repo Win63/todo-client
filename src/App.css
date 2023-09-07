@@ -27,10 +27,36 @@ h1 {
 }
 
 .TaskWrapper {
-  background: var(--tg-theme-bg-color);
+  background: var(--tg-theme-secondary-bg-color);
   color: var(--tg-theme-text-color);
-  margin-top: 5rem;
-  padding: 2rem;
+  padding: 0;
   border-radius: 5px;
 }
  
+.react-calendar__navigation {
+  margin-bottom: 5px;
+}
+
+.TasList {
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+  padding: 0;
+  border: 1px solid var(--tg-theme-text-color);
+  border-radius: 5px;
+}
+
+.react-calendar {
+  background: var(--tg-theme-bg-color);
+  border: 1px solid var(--tg-theme-bg-color);
+  border-radius: 5px;
+  margin: 10px 30px;
+}
+
+.react-calendar__tile:disabled {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
