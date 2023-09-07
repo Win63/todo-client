@@ -8,11 +8,11 @@ const TaskItem = ({task, deleteTodo, editTodo, toggleComplete}) => {
 
     return (
         <div className="Task">
-            { task.isCompleted ? (<FontAwesomeIcon icon={faCheck} className='completed'/>) : <FontAwesomeIcon icon={faSquare} className='completed'/> }
+            { task.isCompleted ? (<FontAwesomeIcon icon={faCheck} className='fa completed'/>) : <FontAwesomeIcon icon={faSquare} className='fa'/> }
             <p className={`${task.isCompleted ? 'completed' : ""}`} onClick={() => toggleComplete(task.id)}>{task.name}</p>
             <div>
-            <FontAwesomeIcon icon={faPenToSquare} onClick={() => editTodo(task.id)} />
-            <FontAwesomeIcon icon={faTrash} onClick={() => deleteTodo(task.id)} />
+            <FontAwesomeIcon icon={faPenToSquare} className='fa' onClick={() => editTodo(task.id)} />
+            <FontAwesomeIcon icon={faTrash} className='fa' onClick={() => deleteTodo(task.id)} />
             </div>
         </div>
     );

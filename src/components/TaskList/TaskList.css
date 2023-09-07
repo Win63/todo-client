@@ -80,7 +80,7 @@
 
 .TaskForm {
     width: 100%;
-    margin-bottom: 1rem;
+    border-radius: 0 0 10px 10px;
 }
   
 .Task {
@@ -89,14 +89,14 @@
     align-items: center;
     background: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
-    padding: 1px 2px;
-    margin: 5px 6px 5px 6px;
+    margin: 5px 6px 0 6px;
     cursor: pointer;
-    border-bottom: 1px solid var(--tg-theme-text-color);
+    border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
 }
 
-.fa-trash {
+.fa {
     margin-left: 0.75rem;
+    color: var(--tg-theme-button-color)
 }
 
 .completed {

@@ -37,21 +37,22 @@ h1 {
   margin-bottom: 5px;
 }
 
-.TasList {
+.TaskList {
   background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
   padding: 0;
-  border: 1px solid var(--tg-theme-text-color);
-  border-radius: 5px;
+  border: 1px solid hsl(var(--tg-theme-secondary-bg-color-h),var(--tg-theme-secondary-bg-color-s),calc(var(--tg-theme-secondary-bg-color-l) * 0.7));
+  border-radius: 10px;
 }
 
 .react-calendar {
   background: var(--tg-theme-bg-color);
   border: 1px solid var(--tg-theme-bg-color);
-  border-radius: 5px;
+  border-radius: 15px;
   margin: 10px 30px;
+  width: 300px;
 }
 
+/*
 .react-calendar__tile:disabled {
   background-color: var(--tg-theme-secondary-bg-color);
 }
@@ -59,4 +60,4 @@ h1 {
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
   background-color: var(--tg-theme-secondary-bg-color);
-}
+}*/
