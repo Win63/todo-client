@@ -40,7 +40,7 @@ h1 {
 .TaskList {
   background: var(--tg-theme-bg-color);
   padding: 0;
-  border: 1px solid hsl(var(--tg-theme-secondary-bg-color-h),var(--tg-theme-secondary-bg-color-s),calc(var(--tg-theme-secondary-bg-color-l) * 0.7));
+  border: 1px solid var(--tg-theme-hint-color);
   border-radius: 10px;
 }
 

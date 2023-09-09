@@ -47,6 +47,7 @@
     width: 100%;
     background-color: var(--tg-theme-secondary-bg-color);
     padding: 5px 10px;
+    border-radius: 0 0 10px 10px;
 }
 .TaskFormRow>.task-input {
     position: relative;
@@ -89,7 +90,7 @@
     align-items: center;
     background: var(--tg-theme-bg-color);
     color: var(--tg-theme-text-color);
-    margin: 5px 6px 0 6px;
+    margin: 10px 6px 0 6px;
     cursor: pointer;
     border-bottom: 1px solid var(--tg-theme-secondary-bg-color);
 }
